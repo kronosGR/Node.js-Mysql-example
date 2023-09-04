@@ -5,7 +5,7 @@ module.exports = (sequelize, Sequelize) => {
       fullName: Sequelize.DataTypes.STRING,
       username: { type: Sequelize.DataTypes.STRING, allowNull: false, unique: true },
       password: {
-        type: Sequelize.DataTypes.BLOB,
+        type: Sequelize.DataTypes.STRING,
         allowNull: false,
       },
     },
