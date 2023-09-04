@@ -1,0 +1,7 @@
+[{
+  "id": 1,
+  "query": "INSERT INTO ROLES (role) VALUES ('admin')"
+}, {
+  "id": 2,
+  "query": "INSERT INTO ROLES (role) VALUES ('member')"
+}]

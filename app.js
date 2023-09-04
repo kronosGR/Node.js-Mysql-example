@@ -1,4 +1,3 @@
-
 require('dotenv').config();
 var createError = require('http-errors');
 var express = require('express');
@@ -10,6 +9,8 @@ var indexRouter = require('./routes/index');
 var animalsRouter = require('./routes/animals');
 var speciesRouter = require('./routes/species');
 var temperamentRouter = require('./routes/temperament');
+
+const db = require('./models');
 
 var app = express();
 
@@ -45,4 +46,3 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
-
