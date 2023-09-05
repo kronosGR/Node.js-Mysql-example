@@ -11,6 +11,12 @@ class UserService {
       RoleId: roleId,
     });
   }
+
+  async getByName(username) {
+    return await this.User.findOne({
+      where: { username: username },
+    });
+  }
 }
 
 module.exports = UserService;

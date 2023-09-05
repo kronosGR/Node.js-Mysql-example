@@ -4,6 +4,10 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const session = require('express-session');
+const JsonStore = require('express-session-json')(session);
+const passport = require('passport');
+const LocalStrategy = require('passport-local');
 
 var indexRouter = require('./routes/index');
 var animalsRouter = require('./routes/animals');
@@ -11,6 +15,9 @@ var speciesRouter = require('./routes/species');
 var temperamentRouter = require('./routes/temperament');
 
 const db = require('./models');
+const UserService = require('./services/UserService');
+
+const userService = new UserService(db);
 
 var app = express();
 
@@ -23,6 +30,31 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(
+  session({
+    secret: 'kronos',
+    resave: false,
+    saveUninitialized: false,
+    store: new JsonStore(),
+  })
+);
+
+passport.use(
+  new LocalStrategy(function verify(username, password, cb) {
+    userService.getByName(username).then((data) => {
+      if (data === null) {
+        return cb(null, false, { message: 'Incorrect username or password' });
+      }
+      if (data.password !== password) {
+        return cb(null, false, { message: 'Incorrect username or password' });
+      }
+      return cb(null, data);
+    });
+  })
+);
+
+app.use(passport.authenticate('session'));
 
 app.use('/', indexRouter);
 app.use('/animals', animalsRouter);
