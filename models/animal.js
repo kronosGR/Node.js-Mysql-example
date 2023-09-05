@@ -2,7 +2,7 @@ module.exports = (sequelize, Sequelize) => {
   const Animal = sequelize.define(
     'Animal',
     {
-      Name: { type: Sequelize.DataTypes.STRING, allowNull: false, unique: true },
+      Name: { type: Sequelize.DataTypes.STRING, allowNull: false },
       BirthDate: {
         type: Sequelize.DataTypes.DATEONLY,
         allowNull: false,

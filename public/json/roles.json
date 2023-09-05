@@ -1,7 +1,7 @@
 [{
   "id": 1,
-  "query": "INSERT INTO ROLES (role) VALUES ('admin')"
+  "query1": "INSERT INTO ROLES (role) VALUES ('admin')"
 }, {
   "id": 2,
-  "query": "INSERT INTO ROLES (role) VALUES ('member')"
+  "query1": "INSERT INTO ROLES (role) VALUES ('member')"
 }]

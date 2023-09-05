@@ -14,7 +14,7 @@ class InitializeService {
     await this.getJSON('temperaments.json');
     await this.getJSON('species.json');
     await this.getJSON('users.json');
-    //await this.getJSON('animals.json');
+    await this.getJSON('animals.json');
   }
 
   async getJSON(file) {
@@ -23,8 +23,15 @@ class InitializeService {
     );
     const json = JSON.parse(queries.body);
     Object.values(json).forEach(async (item) => {
-      console.log('Executed: ' + item.query);
-      await this.Sequelize.query(item.query);
+      for (let i = 1; ; i++) {
+        let q = 'query' + i;
+        if (item[q]) {
+          console.log('Executed: ' + item[q]);
+          await this.Sequelize.query(item[q]);
+        } else {
+          break;
+        }
+      }
     });
   }
 }

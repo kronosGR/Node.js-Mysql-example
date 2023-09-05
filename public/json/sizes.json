@@ -1,10 +1,10 @@
 [{
   "id": 1,
-  "query": "INSERT INTO sizes (name) VALUES ('small')"
+  "query1": "INSERT INTO sizes (name) VALUES ('small')"
 }, {
   "id": 2,
-  "query": "INSERT INTO sizes (name) VALUES ('medium')"
+  "query1": "INSERT INTO sizes (name) VALUES ('medium')"
 }, {
   "id": 3,
-  "query": "INSERT INTO sizes (name) VALUES ('large')"
+  "query1": "INSERT INTO sizes (name) VALUES ('large')"
 }]

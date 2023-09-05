@@ -1,4 +1,64 @@
 [{
   "id": 1,
-  "query": ""
+  "query1": "INSERT INTO animals (name, birthdate, adopted,specieid, sizeid) VALUES ('Coco','2020-02-12',false,2,1);",
+  "query2": "INSERT INTO animtempes (AnimalId, TemperamentId) values(LAST_INSERT_ID(), 1);",
+  "query3": "INSERT INTO animtempes (AnimalId, TemperamentId) values(LAST_INSERT_ID(), 3);"
+}, {
+  "id": 2,
+  "query1": "INSERT INTO animals (name, birthdate, adopted,specieid, sizeid) VALUES ('Ted','2021-02-12',false,1,1);",
+  "query2": "INSERT INTO animtempes (AnimalId, TemperamentId) values(LAST_INSERT_ID(), 1);",
+  "query3": "INSERT INTO animtempes (AnimalId, TemperamentId) values(LAST_INSERT_ID(), 3);"
+}, {
+  "id": 3,
+  "query1": "INSERT INTO animals (name, birthdate, adopted,specieid, sizeid) VALUES ('Coco','2020-02-12',false,3,2);",
+  "query2": "INSERT INTO animtempes (AnimalId, TemperamentId) values(LAST_INSERT_ID(), 5);"
+}, {
+  "id": 4,
+  "query1": "INSERT INTO animals (name, birthdate, adopted,specieid, sizeid) VALUES ('Everest','2019-02-12',false,4,1);",
+  "query2": "INSERT INTO animtempes (AnimalId, TemperamentId) values(LAST_INSERT_ID(), 1);",
+  "query3": "INSERT INTO animtempes (AnimalId, TemperamentId) values(LAST_INSERT_ID(), 2);"
+}, {
+  "id": 5,
+  "query1": "INSERT INTO animals (name, birthdate, adopted,specieid, sizeid) VALUES ('Rocko','2020-02-12',false,5,2);",
+  "query2": "INSERT INTO animtempes (AnimalId, TemperamentId) values(LAST_INSERT_ID(), 1);",
+  "query3": "INSERT INTO animtempes (AnimalId, TemperamentId) values(LAST_INSERT_ID(), 4);"
+}, {
+  "id": 6,
+  "query1": "INSERT INTO animals (name, birthdate, adopted,specieid, sizeid) VALUES ('Goldy','2023-02-12',false,6,1);",
+  "query2": "INSERT INTO animtempes (AnimalId, TemperamentId) values(LAST_INSERT_ID(), 1);"
+}, {
+  "id": 7,
+  "query1": "INSERT INTO animals (name, birthdate, adopted,specieid, sizeid) VALUES ('Lizzy','2020-02-12',false,7,2);",
+  "query2": "INSERT INTO animtempes (AnimalId, TemperamentId) values(LAST_INSERT_ID(), 1);",
+  "query3": "INSERT INTO animtempes (AnimalId, TemperamentId) values(LAST_INSERT_ID(), 4);"
+}, {
+  "id": 8,
+  "query1": "INSERT INTO animals (name, birthdate, adopted,specieid, sizeid) VALUES ('Goga','2018-02-12',false,8,3);",
+  "query2": "INSERT INTO animtempes (AnimalId, TemperamentId) values(LAST_INSERT_ID(), 1);",
+  "query3": "INSERT INTO animtempes (AnimalId, TemperamentId) values(LAST_INSERT_ID(), 4);",
+  "query4": "INSERT INTO animtempes (AnimalId, TemperamentId) values(LAST_INSERT_ID(), 3);"
+}, {
+  "id": 9,
+  "query1": "INSERT INTO animals (name, birthdate, adopted,specieid, sizeid) VALUES ('Tweet Tweet','2020-02-12',false,9,3);",
+  "query2": "INSERT INTO animtempes (AnimalId, TemperamentId) values(LAST_INSERT_ID(), 1);",
+  "query3": "INSERT INTO animtempes (AnimalId, TemperamentId) values(LAST_INSERT_ID(), 4);"
+}, {
+  "id": 10,
+  "query1": "INSERT INTO animals (name, birthdate, adopted,specieid, sizeid) VALUES ('Toothless','2017-02-12',false,10,2);",
+  "query2": "INSERT INTO animtempes (AnimalId, TemperamentId) values(LAST_INSERT_ID(), 3);"
+}, {
+  "id": 11,
+  "query1": "INSERT INTO animals (name, birthdate, adopted,specieid, sizeid) VALUES ('Sophie','2020-02-12',false,2,1);",
+  "query2": "INSERT INTO animtempes (AnimalId, TemperamentId) values(LAST_INSERT_ID(), 1);",
+  "query3": "INSERT INTO animtempes (AnimalId, TemperamentId) values(LAST_INSERT_ID(), 3);"
+}, {
+  "id": 12,
+  "query1": "INSERT INTO animals (name, birthdate, adopted,specieid, sizeid) VALUES ('Teddy','2021-02-12',false,1,1);",
+  "query2": "INSERT INTO animtempes (AnimalId, TemperamentId) values(LAST_INSERT_ID(), 1);",
+  "query3": "INSERT INTO animtempes (AnimalId, TemperamentId) values(LAST_INSERT_ID(), 3);"
+}, {
+  "id": 13,
+  "query1": "INSERT INTO animals (name, birthdate, adopted,specieid, sizeid) VALUES ('Roger','2020-02-12',false,9,3);",
+  "query2": "INSERT INTO animtempes (AnimalId, TemperamentId) values(LAST_INSERT_ID(), 1);",
+  "query3": "INSERT INTO animtempes (AnimalId, TemperamentId) values(LAST_INSERT_ID(), 2);"
 }]

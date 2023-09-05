@@ -1,16 +1,16 @@
 [{
   "id": 1,
-  "query": "INSERT INTO temperaments (name) VALUES ('calm')"
+  "query1": "INSERT INTO temperaments (name) VALUES ('calm')"
 }, {
   "id": 2,
-  "query": "INSERT INTO temperaments (name) VALUES ('scared')"
+  "query1": "INSERT INTO temperaments (name) VALUES ('scared')"
 }, {
   "id": 3,
-  "query": "INSERT INTO temperaments (name) VALUES ('happy')"
+  "query1": "INSERT INTO temperaments (name) VALUES ('happy')"
 }, {
   "id": 4,
-  "query": "INSERT INTO temperaments (name) VALUES ('lazy')"
+  "query1": "INSERT INTO temperaments (name) VALUES ('lazy')"
 }, {
   "id": 5,
-  "query": "INSERT INTO temperaments (name) VALUES ('energetic')"
+  "query1": "INSERT INTO temperaments (name) VALUES ('energetic')"
 }]

@@ -1,31 +1,31 @@
 [{
   "id": 1,
-  "query": "INSERT INTO species (name) VALUES ('Tedy bear hamster')"
+  "query1": "INSERT INTO species (name) VALUES ('Tedy bear hamster')"
 }, {
   "id": 2,
-  "query": "INSERT INTO species (name) VALUES ('Jack-Russel')"
+  "query1": "INSERT INTO species (name) VALUES ('Jack-Russel')"
 }, {
   "id": 3,
-  "query": "INSERT INTO species (name) VALUES ('Dwarf Hamster')"
+  "query1": "INSERT INTO species (name) VALUES ('Dwarf Hamster')"
 }, {
   "id": 4,
-  "query": "INSERT INTO species (name) VALUES ('Budgy')"
+  "query1": "INSERT INTO species (name) VALUES ('Budgy')"
 }, {
   "id": 5,
-  "query": "INSERT INTO species (name) VALUES ('Tortoise')"
+  "query1": "INSERT INTO species (name) VALUES ('Tortoise')"
 }, {
   "id": 5,
-  "query": "INSERT INTO species (name) VALUES ('Gold Fish')"
+  "query1": "INSERT INTO species (name) VALUES ('Gold Fish')"
 }, {
   "id": 6,
-  "query": "INSERT INTO species (name) VALUES ('Lizzard')"
+  "query1": "INSERT INTO species (name) VALUES ('Lizzard')"
 }, {
   "id": 7,
-  "query": "INSERT INTO species (name) VALUES ('Bearded Dragon')"
+  "query1": "INSERT INTO species (name) VALUES ('Bearded Dragon')"
 }, {
   "id": 8,
-  "query": "INSERT INTO species (name) VALUES ('Parrot')"
+  "query1": "INSERT INTO species (name) VALUES ('Parrot')"
 }, {
   "id": 9,
-  "query": "INSERT INTO species (name) VALUES ('Corn snake')"
+  "query1": "INSERT INTO species (name) VALUES ('Corn snake')"
 }]
