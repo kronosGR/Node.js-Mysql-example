@@ -23,4 +23,10 @@ router.post('/update', jsonParser, async function (req, res, next) {
   else res.render('index', { user: req.body });
 });
 
+router.delete('/', jsonParser, async function (req, res, next) {
+  await speciesService.deleteSpecie(req.body.Id);
+  if (!req.user) res.render('index', { user: null });
+  else res.render('index', { user: req.body });
+});
+
 module.exports = router;

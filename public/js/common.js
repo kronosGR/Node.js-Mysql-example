@@ -18,7 +18,19 @@ async function updateSpecies(url, id) {
   return 'Specie Updated';
 }
 
-function deleteSpecies(url, id) {}
+async function deleteSpecies(url, id) {
+  const response = await fetch(url, {
+    method: 'DELETE',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify({
+      Id: id,
+    }),
+  });
+  location.reload();
+  return 'Specie Deleted';
+}
 
 async function updateTemperament(url, id) {
   let newTemperament = prompt('Update temperament');

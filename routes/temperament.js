@@ -22,7 +22,6 @@ router.post('/update', jsonParser, async function (req, res, next) {
 });
 
 router.delete('/', jsonParser, async function (req, res, next) {
-  console.log(req.body.Id);
   await temperamentService.deleteTemperament(req.body.Id);
   if (!req.user) res.render('index', { user: null });
   else res.render('index', { user: req.body });

@@ -20,6 +20,12 @@ class SpeciesService {
     );
     console.log(tmp);
   }
+
+  async deleteSpecie(id) {
+    return this.Specie.destroy({
+      where: { Id: id },
+    });
+  }
 }
 
 module.exports = SpeciesService;
