@@ -6,5 +6,9 @@ module.exports = (sequelize, Sequelize) => {
     },
     { timestamps: false }
   );
+
+  Temperament.associate = function (models) {
+    Temperament.belongsToMany(models.Animal, { through: models.AnimTempe });
+  };
   return Temperament;
 };

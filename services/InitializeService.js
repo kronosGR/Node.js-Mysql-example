@@ -14,6 +14,7 @@ class InitializeService {
     await this.getJSON('temperaments.json');
     await this.getJSON('species.json');
     await this.getJSON('users.json');
+    //await this.getJSON('animals.json');
   }
 
   async getJSON(file) {
