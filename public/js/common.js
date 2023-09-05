@@ -2,11 +2,23 @@ function adoptAnimal(id) {}
 
 function deleteAnimal(id) {}
 
-function updateSpecies(id) {
-  newSpecies = prompt('Update species');
+async function updateSpecies(url, id) {
+  let newSpecies = prompt('Update species');
+  const res = await fetch(url + '/update', {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify({
+      Id: id,
+      Name: newSpecies,
+    }),
+  });
+  location.reload();
+  return 'Specie Updated';
 }
 
-function deleteSpecies(id) {}
+function deleteSpecies(url, id) {}
 
 async function updateTemperament(url, id) {
   let newTemperament = prompt('Update temperament');

@@ -18,17 +18,19 @@
         <span class="col py-1 bg-noroff">Name</span>
         <span class="col py-1 bg-noroff">Options</span>
       </div>
-      <% species.forEach(function(species) { %>
+      <% species.forEach(function(specie) { %>
       <div class="row px-3 py-1 w-100">
         <span class="col py-1 bg-light">
-          <%=species.id%>
+          <%=specie.id%>
         </span>
         <span class="col py-1 bg-light">
-          <%=species.Name%>
+          <%=specie.Name%>
         </span>
         <span class="col py-1 bg-light text-center">
-          <button class="btn-sm btn-warning" onclick="updateSpecies( <%=species.Id%>)">Update species</button>
-          <button class="btn-sm btn-danger" onclick="deleteSpecies( <%=species.Id%>)">Delete species</button>
+          <button class="btn-sm btn-warning" onclick='updateSpecies("<%=species.url%>","<%=specie.id%>")'>Update
+            species</button>
+          <button class="btn-sm btn-danger" onclick='deleteSpecies("<%=species.url%>","<%=specie.id%>")'>Delete
+            species</button>
         </span>
       </div>
       <% }); %>

@@ -16,7 +16,6 @@ class TemperamentService {
         plain: true,
       }
     );
-    console.log(tmp);
   }
 
   async deleteTemperament(id) {
