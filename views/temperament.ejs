@@ -28,8 +28,10 @@
           <%=temp.name%>
         </span>
         <span class="col py-1 bg-light text-center">
-          <button class="btn-sm btn-warning" onclick="updateTemperament(<%=temp.Id%>)">Update temperament</button>
-          <button class="btn-sm btn-danger" onclick="deleteTemperament(<%=temp.Id%>)">Delete temperament</button>
+          <button class="btn-sm btn-warning" onclick='updateTemperament("<%=temperament.url%>","<%=temp.id%>")'>Update
+            temperament</button>
+          <button class="btn-sm btn-danger" onclick='deleteTemperament("<%=temperament.url%>","<%=temp.id%>")'>Delete
+            temperament</button>
         </span>
       </div>
       <% }); %>
