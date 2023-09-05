@@ -7,7 +7,6 @@ const speciesService = new SpeciesService(db);
 
 router.get('/', async function (req, res, next) {
   species = await speciesService.getSpecies();
-  console.log(species);
   if (!req.user) {
     res.render('species', { user: null });
   } else {
