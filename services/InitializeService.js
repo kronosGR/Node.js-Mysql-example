@@ -22,17 +22,17 @@ class InitializeService {
       `http://${process.env.HOST}:${process.env.PORT}/json/${file}`
     );
     const json = JSON.parse(queries.body);
-    Object.values(json).forEach(async (item) => {
+    const vl = Object.values(json);
+    for (let x = 0; x < vl.length; x++) {
       for (let i = 1; ; i++) {
         let q = 'query' + i;
-        if (item[q]) {
-          console.log('Executed: ' + item[q]);
-          await this.Sequelize.query(item[q]);
+        if (vl[x][q]) {
+          await this.Sequelize.query(vl[x][q]);
         } else {
           break;
         }
       }
-    });
+    }
   }
 }
 
