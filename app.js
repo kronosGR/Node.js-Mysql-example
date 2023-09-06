@@ -16,6 +16,7 @@ var temperamentRouter = require('./routes/temperament');
 
 const db = require('./models');
 const UserService = require('./services/UserService');
+const isAdmin = require('./middleware/isAdmin');
 
 const userService = new UserService(db);
 
@@ -56,25 +57,10 @@ passport.use(
 
 app.use(passport.authenticate('session'));
 
-const isMember = (req, res, next) => {
-  if (req.user) {
-    next();
-  } else {
-    res.redirect('/login');
-  }
-};
-const isAdmin = (req, res, next) => {
-  if (req.user.role === 1) {
-    next();
-  } else {
-    console.log('Not an admin');
-  }
-};
-
 app.use('/', indexRouter);
 app.use('/animals', animalsRouter);
-app.use('/species', speciesRouter);
-app.use('/temperament', temperamentRouter);
+app.use('/species', isAdmin, speciesRouter);
+app.use('/temperament', isAdmin, temperamentRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
