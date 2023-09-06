@@ -46,9 +46,9 @@
               <div class="col-4"></div>
               <div class="col-4 text-center mt-2">
                 <%if (user && user.role===1) {%>
-                <form action="/temperament/add" method="POST">
-                  <button class="btn btn-success" id="btn-add-animal">Add New Temperament</button>
-                </form>
+                <button class="btn btn-success" id="btn-add-animal" onclick='addTemperament("<%=temperament.url%>")'>Add
+                  New Temperament</button>
+
                 <%}%>
         </div>
         <div class="col-4"></div>

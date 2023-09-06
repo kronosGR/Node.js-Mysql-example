@@ -73,6 +73,22 @@ async function updateTemperament(url, id) {
   return 'Temperament Updated';
 }
 
+async function addTemperament(url) {
+  let newTemp = prompt('Name for temperament');
+  console.log('-----------------------------', url);
+  const res = await fetch(url + '/add', {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify({
+      Name: newTemp,
+    }),
+  });
+  location.reload();
+  return 'Temperament Added';
+}
+
 async function deleteTemperament(url, id) {
   const response = await fetch(url, {
     method: 'DELETE',

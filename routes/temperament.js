@@ -17,14 +17,21 @@ router.get('/', async function (req, res, next) {
 
 router.post('/update', jsonParser, async function (req, res, next) {
   await temperamentService.updateTemperament(req.body.Id, req.body.Name);
-  if (!req.user) res.render('index', { user: null });
-  else res.render('index', { user: req.body });
+  if (!req.user) res.render('temperament', { user: null });
+  else res.render('temperament', { user: req.user });
+});
+
+router.post('/add', jsonParser, async function (req, res, next) {
+  console.log(req.body);
+  await temperamentService.addTemperament(req.body.Name);
+  if (!req.user) res.render('temperament', { user: null });
+  else res.render('temperament', { user: req.user });
 });
 
 router.delete('/', jsonParser, async function (req, res, next) {
   await temperamentService.deleteTemperament(req.body.Id);
-  if (!req.user) res.render('index', { user: null });
-  else res.render('index', { user: req.body });
+  if (!req.user) res.render('temperament', { user: null });
+  else res.render('temperament', { user: req.user });
 });
 
 module.exports = router;

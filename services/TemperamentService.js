@@ -7,6 +7,12 @@ class TemperamentService {
     return this.Temperament.findAll({ where: {} });
   }
 
+  async addTemperament(name) {
+    return this.Temperament.create({
+      name: name,
+    });
+  }
+
   async updateTemperament(id, name) {
     const tmp = await this.Temperament.update(
       { name: name },
