@@ -62,6 +62,18 @@ class AnimalsService {
       }
     );
   }
+  async cancelAdoption(id) {
+    const tmp = await this.Animal.update(
+      {
+        UserId: null,
+      },
+      {
+        where: { id: id },
+        returning: true,
+        plain: true,
+      }
+    );
+  }
 }
 
 module.exports = AnimalsService;

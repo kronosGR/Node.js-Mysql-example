@@ -13,7 +13,19 @@ async function adoptAnimal(url, id, userId) {
   return 'Animal Adopted';
 }
 
-function deleteAnimal(id) {}
+async function deleteAnimal(url, id) {
+  const res = await fetch(url, {
+    method: 'DELETE',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify({
+      Id: id,
+    }),
+  });
+  location.reload();
+  return 'Adoption Canceled';
+}
 
 async function updateSpecies(url, id) {
   let newSpecies = prompt('Update species');

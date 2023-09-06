@@ -19,7 +19,7 @@
   "query3": "INSERT INTO animtempes (AnimalId, TemperamentId) values(LAST_INSERT_ID(), 2);"
 }, {
   "id": 5,
-  "query1": "INSERT INTO animals (name, birthdate, specieid, sizeid) VALUES ('Rocko','2020-02-12',5,2);",
+  "query1": "INSERT INTO animals (name, birthdate, specieid, sizeid, UserId) VALUES ('Rocko','2020-02-12',5,2,2);",
   "query2": "INSERT INTO animtempes (AnimalId, TemperamentId) values(LAST_INSERT_ID(), 1);",
   "query3": "INSERT INTO animtempes (AnimalId, TemperamentId) values(LAST_INSERT_ID(), 4);"
 }, {

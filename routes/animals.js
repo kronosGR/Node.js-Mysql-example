@@ -23,4 +23,11 @@ router.post('/', jsonParser, async function (req, res, next) {
   else res.render('animals', { user: req.user });
 });
 
+router.delete('/', jsonParser, async function (req, res, next) {
+  await animalsService.cancelAdoption(req.body.Id);
+
+  if (!req.user) res.render('animals', { user: null });
+  else res.render('animals', { user: req.user });
+});
+
 module.exports = router;
