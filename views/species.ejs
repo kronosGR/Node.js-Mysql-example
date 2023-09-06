@@ -16,36 +16,42 @@
       <div class="row px-3 py-1 w-100">
         <span class="col py-1 bg-noroff">Id</span>
         <span class="col py-1 bg-noroff">Name</span>
+        <%if (user && user.role===1) {%>
         <span class="col py-1 bg-noroff">Options</span>
+        <%}%>
       </div>
       <% species.forEach(function(specie) { %>
-      <div class="row px-3 py-1 w-100">
-        <span class="col py-1 bg-light">
-          <%=specie.id%>
-        </span>
-        <span class="col py-1 bg-light">
-          <%=specie.Name%>
-        </span>
-        <span class="col py-1 bg-light text-center">
-          <button class="btn-sm btn-warning" onclick='updateSpecies("<%=species.url%>","<%=specie.id%>")'>Update
-            species</button>
-          <button class="btn-sm btn-danger" onclick='deleteSpecies("<%=species.url%>","<%=specie.id%>")'>Delete
-            species</button>
+        <div class="row px-3 py-1 w-100">
+          <span class="col py-1 bg-light">
+            <%=specie.id%>
+          </span>
+          <span class="col py-1 bg-light">
+            <%=specie.Name%>
+          </span>
+          <span class="col py-1 bg-light text-center">
+            <%if (user && user.role===1) {%>
+            <button class="btn-sm btn-warning" onclick='updateSpecies("<%=species.url%>","<%=specie.id%>")'>Update
+              species</button>
+            <button class="btn-sm btn-danger" onclick='deleteSpecies("<%=species.url%>","<%=specie.id%>")'>Delete
+              species</button>
+            <%}%>
         </span>
       </div>
       <% }); %>
-      <hr>
-      <div class="row">
-        <div class="col-4"></div>
-        <div class="col-4 text-center mt-2">
-          <form action="/species/add" method="POST">
-            <button class="btn btn-success" id="btn-add-animal">Add New Species</button>
-          </form>
+            <hr>
+            <div class="row">
+              <div class="col-4"></div>
+              <div class="col-4 text-center mt-2">
+                <%if (user && user.role===1) {%>
+                <form action="/species/add" method="POST">
+                  <button class="btn btn-success" id="btn-add-animal">Add New Species</button>
+                </form>
+                <%}%>
+              </div>
+              <div class="col-4"></div>
+            </div>
         </div>
-        <div class="col-4"></div>
       </div>
-    </div>
-  </div>
 </body>
 
 </html>

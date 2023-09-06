@@ -7,7 +7,6 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.DataTypes.DATEONLY,
         allowNull: false,
       },
-      Adopted: { type: Sequelize.DataTypes.BOOLEAN },
     },
     { timestamps: false }
   );
@@ -16,6 +15,7 @@ module.exports = (sequelize, Sequelize) => {
     Animal.belongsTo(models.Specie);
     Animal.belongsTo(models.Size);
     Animal.belongsToMany(models.Temperament, { through: models.AnimTempe });
+    Animal.belongsTo(models.User);
   };
 
   return Animal;

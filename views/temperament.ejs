@@ -17,31 +17,39 @@
       <div class="row px-3 py-1 w-100">
         <span class="col py-1 bg-noroff">Id</span>
         <span class="col py-1 bg-noroff">Name</span>
+
+        <%if (user && user.role===1) {%>
         <span class="col py-1 bg-noroff">Options</span>
+        <%}%>
       </div>
       <% temperament.forEach(function(temp) { %>
-      <div class="row px-3 py-1 w-100">
-        <span class="col py-1 bg-light">
-          <%=temp.id%>
-        </span>
-        <span class="col py-1 bg-light">
-          <%=temp.name%>
-        </span>
-        <span class="col py-1 bg-light text-center">
-          <button class="btn-sm btn-warning" onclick='updateTemperament("<%=temperament.url%>","<%=temp.id%>")'>Update
-            temperament</button>
-          <button class="btn-sm btn-danger" onclick='deleteTemperament("<%=temperament.url%>","<%=temp.id%>")'>Delete
-            temperament</button>
+        <div class="row px-3 py-1 w-100">
+          <span class="col py-1 bg-light">
+            <%=temp.id%>
+          </span>
+          <span class="col py-1 bg-light">
+            <%=temp.name%>
+          </span>
+          <span class="col py-1 bg-light text-center">
+
+            <%if (user && user.role===1) {%>
+            <button class="btn-sm btn-warning" onclick='updateTemperament("<%=temperament.url%>","<%=temp.id%>")'>Update
+              temperament</button>
+            <button class="btn-sm btn-danger" onclick='deleteTemperament("<%=temperament.url%>","<%=temp.id%>")'>Delete
+              temperament</button>
+            <%}%>
         </span>
       </div>
       <% }); %>
-      <hr>
-      <div class="row">
-        <div class="col-4"></div>
-        <div class="col-4 text-center mt-2">
-          <form action="/temperament/add" method="POST">
-            <button class="btn btn-success" id="btn-add-animal">Add New Temperament</button>
-          </form>
+            <hr>
+            <div class="row">
+              <div class="col-4"></div>
+              <div class="col-4 text-center mt-2">
+                <%if (user && user.role===1) {%>
+                <form action="/temperament/add" method="POST">
+                  <button class="btn btn-success" id="btn-add-animal">Add New Temperament</button>
+                </form>
+                <%}%>
         </div>
         <div class="col-4"></div>
       </div>

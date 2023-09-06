@@ -56,6 +56,21 @@ passport.use(
 
 app.use(passport.authenticate('session'));
 
+const isMember = (req, res, next) => {
+  if (req.user) {
+    next();
+  } else {
+    res.redirect('/login');
+  }
+};
+const isAdmin = (req, res, next) => {
+  if (req.user.role === 1) {
+    next();
+  } else {
+    console.log('Not an admin');
+  }
+};
+
 app.use('/', indexRouter);
 app.use('/animals', animalsRouter);
 app.use('/species', speciesRouter);
