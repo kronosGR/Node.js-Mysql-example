@@ -27,9 +27,11 @@
         <span class="col py-1 bg-light ">
           <button class="btn-sm btn-success" onclick="sqlQuery4()">Animals Born In Date Range</button>
         </span>
+        <%if ( user && user.role===1) {%>
         <span class="col py-1 bg-light ">
           <button class="btn-sm btn-success" onclick="sqlQuery5()">Number of Animals Per Size</button>
         </span>
+        <%}%>
         <span class="col py-1 bg-light ">
           <button class="btn-sm btn-warning" onclick="allAnimals()">All Animals</button>
         </span>
@@ -46,51 +48,51 @@
         <span class="col py-1 bg-noroff">Options</span>
       </div>
       <% animals.forEach(function(animal) { %>
-      <div class="row px-3 py-1 w-100">
-        <span class="col py-1 bg-light ">
-          <%=animal.id%>
-        </span>
-        <span class="col py-1 bg-light">
-          <%=animal.Name%>
-        </span>
-        <span class="col py-1 bg-light">
-          <%=animal.Specie.Name%>
-        </span>
-        <span class="col py-1 bg-light">
-          <%=animal.BirthDate%>
-        </span>
-        <span class="col py-1 bg-light">
-          <%=animal.Temperament%>
-        </span>
-        <span class="col py-1 bg-light">
-          <%=animal.Size.Name%>
-        </span>
-        <span class="col py-1 bg-light">
-          <%=animal.dataValues.Age%>
-        </span>
-        <span class="col py-1 bg-light">
-          <%if (animal.UserId){%>
-          true
-          <%} else {%>
-          false
-          <%}%>
+        <div class="row px-3 py-1 w-100">
+          <span class="col py-1 bg-light ">
+            <%=animal.id%>
+          </span>
+          <span class="col py-1 bg-light">
+            <%=animal.Name%>
+          </span>
+          <span class="col py-1 bg-light">
+            <%=animal.SpecieName%>
+          </span>
+          <span class="col py-1 bg-light">
+            <%=animal.BirthDate%>
+          </span>
+          <span class="col py-1 bg-light">
+            <%=animal.TemperamentName%>
+          </span>
+          <span class="col py-1 bg-light">
+            <%=animal.SizeName%>
+          </span>
+          <span class="col py-1 bg-light">
+            <%=animal.Age%>
+          </span>
+          <span class="col py-1 bg-light">
+            <%if (animal.UserId){%>
+            true
+            <%} else {%>
+            false
+            <%}%>
         </span>
         <span class="col py-1 bg-light text-center">
           <%if (!animal.UserId && user && user.role===2) {%>
-          <button class="btn-sm btn-warning"
-            onclick='adoptAnimal("<%=animals.url%>","<%=animal.id%>","<%=user.id%>")'>Adopt</button>
-          <%}%>
+            <button class="btn-sm btn-warning"
+              onclick='adoptAnimal("<%=animals.url%>","<%=animal.id%>","<%=user.id%>")'>Adopt</button>
+            <%}%>
           <%if (animal.UserId && user && user.role===1) {%>
-          <button class="btn-sm btn-danger" onclick='deleteAnimal("<%=animals.url%>","<%=animal.id%>")'>Cancel
-            Adoption</button>
-          <%}%>
+            <button class="btn-sm btn-danger" onclick='deleteAnimal("<%=animals.url%>","<%=animal.id%>")'>Cancel
+              Adoption</button>
+            <%}%>
         </span>
       </div>
       <% }); %>
-          <hr>
+            <hr>
 
+        </div>
       </div>
-    </div>
 </body>
 
 </html>
