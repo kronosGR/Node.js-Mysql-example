@@ -1,4 +1,17 @@
-function adoptAnimal(id) {}
+async function adoptAnimal(url, id, userId) {
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify({
+      Id: id,
+      UserId: userId,
+    }),
+  });
+  location.reload();
+  return 'Animal Adopted';
+}
 
 function deleteAnimal(id) {}
 

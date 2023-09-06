@@ -18,7 +18,6 @@ class SpeciesService {
         plain: true,
       }
     );
-    console.log(tmp);
   }
 
   async deleteSpecie(id) {

@@ -58,14 +58,21 @@
           <%=animal.dataValues.Age%>
         </span>
         <span class="col py-1 bg-light">
-          <%=animal.Adopted%>
+          <%if (animal.UserId){%>
+          true
+          <%} else {%>
+          false
+          <%}%>
         </span>
         <span class="col py-1 bg-light text-center">
-          <%if (user && user.role===2) {%>
-          <button class="btn-sm btn-warning" onclick="adoptAnimal(<%=animal.Id%>)">Adopt</button>
+          <%if (!animal.UserId &&user && user.role===2) {%>
+          <button class="btn-sm btn-warning"
+            onclick='adoptAnimal("<%=animals.url%>","<%=animal.id%>","<%=user.id%>")'>Adopt</button>
           <%}%>
           <%if (user && user.role===1) {%>
-          <button class="btn-sm btn-danger" onclick="deleteAnimal(<%=animal.Id%>)">Cancel Adoption</button>
+          <button class="btn-sm btn-danger"
+            onclick='deleteAnimal("<%=animals.url%>","<%=animal.id%>","<%=user.id%>")'>Cancel
+            Adoption</button>
           <%}%>
         </span>
       </div>

@@ -14,7 +14,7 @@ class AnimalsService {
         'Name',
         'id',
         'BirthDate',
-        'Adopted',
+        'UserId',
         [
           sequelize.literal(
             `DATE_FORMAT(FROM_DAYS(DATEDIFF(NOW(), BirthDate)), '%Y') + 0`
@@ -48,6 +48,19 @@ class AnimalsService {
       animal.Temperament = arr.join(', ');
     });
     return animals;
+  }
+
+  async adoptAnimal(id, userId) {
+    const tmp = await this.Animal.update(
+      {
+        UserId: userId,
+      },
+      {
+        where: { id: id },
+        returning: true,
+        plain: true,
+      }
+    );
   }
 }
 

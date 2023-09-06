@@ -20,13 +20,13 @@ router.get('/', async function (req, res, next) {
 router.post('/update', jsonParser, async function (req, res, next) {
   await speciesService.updateSpecie(req.body.Id, req.body.Name);
   if (!req.user) res.render('index', { user: null });
-  else res.render('index', { user: req.body });
+  else res.render('index', { user: req.user });
 });
 
 router.delete('/', jsonParser, async function (req, res, next) {
   await speciesService.deleteSpecie(req.body.Id);
   if (!req.user) res.render('index', { user: null });
-  else res.render('index', { user: req.body });
+  else res.render('index', { user: req.user });
 });
 
 module.exports = router;
