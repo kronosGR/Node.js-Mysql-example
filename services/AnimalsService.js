@@ -1,3 +1,5 @@
+const sequelize = require('sequelize');
+
 class AnimalsService {
   constructor(db) {
     this.Animal = db.Animal;
@@ -8,6 +10,18 @@ class AnimalsService {
 
   async getAnimals() {
     const animals = await this.Animal.findAll({
+      attributes: [
+        'Name',
+        'id',
+        'BirthDate',
+        'Adopted',
+        [
+          sequelize.literal(
+            `DATE_FORMAT(FROM_DAYS(DATEDIFF(NOW(), BirthDate)), '%Y') + 0`
+          ),
+          'Age',
+        ],
+      ],
       where: {},
       order: [['id', 'Asc']],
       include: [

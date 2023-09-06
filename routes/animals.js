@@ -7,7 +7,7 @@ const animalsService = new AnimalsService(db);
 
 router.get('/', async function (req, res, next) {
   let animals = await animalsService.getAnimals();
-  // console.log(animals[0].Temperaments);
+  // console.log(animals[0].dataValues.Age);
 
   if (!req.user) res.render('animals', { user: null, animals: animals });
   else res.render('animals', { user: req.user, animals: animals });
