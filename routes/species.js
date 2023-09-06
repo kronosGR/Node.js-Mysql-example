@@ -19,14 +19,20 @@ router.get('/', async function (req, res, next) {
 
 router.post('/update', jsonParser, async function (req, res, next) {
   await speciesService.updateSpecie(req.body.Id, req.body.Name);
-  if (!req.user) res.render('index', { user: null });
-  else res.render('index', { user: req.user });
+  if (!req.user) res.render('species', { user: null });
+  else res.render('species', { user: req.user });
+});
+
+router.post('/add', jsonParser, async function (req, res, next) {
+  await speciesService.addSpecie(req.body.Name);
+  if (!req.user) res.render('species', { user: null });
+  else res.render('species', { user: req.user });
 });
 
 router.delete('/', jsonParser, async function (req, res, next) {
   await speciesService.deleteSpecie(req.body.Id);
-  if (!req.user) res.render('index', { user: null });
-  else res.render('index', { user: req.user });
+  if (!req.user) res.render('species', { user: null });
+  else res.render('species', { user: req.user });
 });
 
 module.exports = router;

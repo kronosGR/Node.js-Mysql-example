@@ -22,7 +22,6 @@ router.post('/update', jsonParser, async function (req, res, next) {
 });
 
 router.post('/add', jsonParser, async function (req, res, next) {
-  console.log(req.body);
   await temperamentService.addTemperament(req.body.Name);
   if (!req.user) res.render('temperament', { user: null });
   else res.render('temperament', { user: req.user });

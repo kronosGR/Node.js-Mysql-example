@@ -7,6 +7,12 @@ class SpeciesService {
     return this.Specie.findAll({ where: {} });
   }
 
+  async addSpecie(name) {
+    return this.Specie.create({
+      Name: name,
+    });
+  }
+
   async updateSpecie(id, name) {
     const tmp = await this.Specie.update(
       {
