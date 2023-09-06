@@ -23,7 +23,7 @@ class SpeciesService {
   async deleteSpecie(id) {
     return this.Specie.destroy({
       where: { Id: id },
-    });
+    }).catch((e) => {});
   }
 }
 

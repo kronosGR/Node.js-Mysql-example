@@ -12,7 +12,11 @@ module.exports = (sequelize, Sequelize) => {
   );
 
   Animal.associate = function (models) {
-    Animal.belongsTo(models.Specie);
+    Animal.belongsTo(models.Specie, {
+      foreignKey: {
+        allowNull: false,
+      },
+    });
     Animal.belongsTo(models.Size);
     Animal.belongsToMany(models.Temperament, { through: models.AnimTempe });
     Animal.belongsTo(models.User);

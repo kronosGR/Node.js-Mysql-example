@@ -21,7 +21,7 @@ class TemperamentService {
   async deleteTemperament(id) {
     return this.Temperament.destroy({
       where: { Id: id },
-    });
+    }).catch((e) => {});
   }
 }
 
