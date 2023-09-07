@@ -27,7 +27,7 @@ class InitializeService {
       for (let i = 1; ; i++) {
         let q = 'query' + i;
         if (vl[x][q]) {
-          await this.Sequelize.query(vl[x][q]);
+          await this.Sequelize.query(vl[x][q], { ignore: true });
         } else {
           break;
         }
