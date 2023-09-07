@@ -35,13 +35,13 @@ If you are unsure of any instructions for the course assignment, contact out to 
 # Environment Variables
 
 ```
-    ADMIN_USERNAME = ""
-    ADMIN_PASSWORD = ""
-    DATABASE_NAME = ""
-    DIALECT = ""
-    DIALECTMODEL = ""
-    PORT = ""
-    HOST = ""
+  ADMIN_USERNAME = "dabcaowner"
+  ADMIN_PASSWORD = "dabca1234"
+  DATABASE_NAME = "adoptiondb"
+  DIALECT = "mysql"
+  DIALECTMODEL = "mysql2"
+  PORT = "3000"
+  HOST = "localhost"
 ```
 
 # Additional Libraries/Packages
