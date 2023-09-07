@@ -1,3 +1,12 @@
+const dateFromString = (dat) => {
+  let dt = dat.split('-');
+  let date = new Date();
+  date.setFullYear(dt[0]);
+  date.setMonth(dt[1] - 1);
+  date.setDate(dt[2]);
+  return date;
+};
+
 async function adoptAnimal(url, id, userId) {
   const res = await fetch(url, {
     method: 'POST',
@@ -116,3 +125,38 @@ async function deleteTemperament(url, id) {
   location.reload();
   return 'Temperament Deleted';
 }
+
+$(document).ready(function () {
+  $('#searchDiv').hide();
+
+  $('#searchLink').click(function () {
+    $('#searchDiv').toggle();
+  });
+
+  $('#searchForm').submit(function (e) {
+    e.preventDefault();
+
+    $('#table > div').each(function () {
+      $(this).show();
+    });
+    let from = $('#from').val();
+    let to = $('#to').val();
+
+    if (from != '' && to != '') {
+      let dateFrom = new Date(from);
+      let dateTo = new Date(to);
+
+      $('#table > div').each(function () {
+        let date = dateFromString($(this).find('#BirthDate').text().trim());
+
+        if (date < dateFrom || date > dateTo) {
+          $(this).hide();
+        }
+      });
+    } else {
+      $('#table > div').each(function () {
+        $(this).show();
+      });
+    }
+  });
+});

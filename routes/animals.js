@@ -10,9 +10,21 @@ const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
 const animalsService = new AnimalsService(db);
 
-router.get('/:which', async function (req, res, next) {
+router.get('/:which?', async function (req, res, next) {
   let animals;
-  if (req.params.which === 'all') animals = await animalsService.getAnimals();
+  if (!req.params.which) animals = await animalsService.getAnimals();
+  if (req.params.which === 'popularname') {
+    animals = await animalsService.getAnimalsPopularName();
+  }
+  if (req.params.which === 'adopted') {
+    animals = await animalsService.getAdoptedAnimals();
+  }
+  if (req.params.which === 'byage') {
+    animals = await animalsService.getAnimalsByAge();
+  }
+  if (req.params.which === 'bysize' && req.user.role === 1) {
+    animals = await animalsService.getAnimalsBySize();
+  }
 
   animals.url = getUrl() + 'animals';
 

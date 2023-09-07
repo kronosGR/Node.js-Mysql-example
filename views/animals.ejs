@@ -5,6 +5,7 @@
   <title> DAB - Adopt Animal</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/stylesheets/styles.css">
+  <script src="/jquery.js"></script>
   <script src="../js/common.js"></script>
 
 </head>
@@ -14,40 +15,64 @@
   <div class="container-fluid mt-5">
     <h2 class="p-3 text-center">Animals for Adoption</h2>
     <div class="list-group">
-      <div class="row px-3 py-1 w-100">
+      <div class="row px-3 py-1 w-100 d-flex">
         <span class="col py-1 bg-light ">
-          <button class="btn-sm btn-success" onclick="sqlQuery1()">Popular Animal Names</button>
+          <a class="btn-sm btn-success d-block text-center text-decoration-none" href='../animals/popularname'>Popular
+            Animal Names</a>
         </span>
         <span class="col py-1 bg-light ">
-          <button class="btn-sm btn-success" onclick="sqlQuery2()">All Adoption Details</button>
+          <a class="btn-sm btn-success d-block text-center text-decoration-none" href='../animals/adopted'>All
+            Adoption Details</a>
         </span>
         <span class="col py-1 bg-light ">
-          <button class="btn-sm btn-success" onclick="sqlQuery3()">Animals By Age</button>
+          <a class="btn-sm btn-success d-block text-center text-decoration-none" href='../animals/byage'>Animals
+            By Age</a>
         </span>
         <span class="col py-1 bg-light ">
-          <button class="btn-sm btn-success" onclick="sqlQuery4()">Animals Born In Date Range</button>
+          <a href="#" id="searchLink" class="btn-sm btn-success d-block text-center text-decoration-none"
+            onclick='filterByAge("<%=animals.url%>")'> Born In Date
+            Range</a>
         </span>
         <%if ( user && user.role===1) {%>
         <span class="col py-1 bg-light ">
-          <button class="btn-sm btn-success" onclick="sqlQuery5()">Number of Animals Per Size</button>
+          <a class="btn-sm btn-success d-block text-center text-decoration-none" href='../animals/bysize'>Number of
+            Animals Per Size</a>
         </span>
         <%}%>
-        <span class="col py-1 bg-light ">
-          <button class="btn-sm btn-warning" onclick="allAnimals()">All Animals</button>
-        </span>
+          <span class="col py-1 bg-light ">
+            <a class="btn-sm btn-success d-block text-center text-decoration-none" href='../animals/'>All Animals</a>
+          </span>
+      </div>
+      <div id="searchDiv">
+        <form id="searchForm" class="d-flex align-items-center justify-content-center">
+          <input type="date" name="from" id="from" class="me-2" />
+          <input type="date" name="to" id="to" class="me-2" />
+          <button type="submit" class="btn btn-outline-secondary">
+            Search
+          </button>
+        </form>
       </div>
       <div class="row px-3 py-1 w-100">
-        <span class="col py-1 bg-noroff">Id</span>
+        <span class="col py-1 bg-noroff">
+          <%if(animals[0].count){%>
+        Total
+        <%} else {%>
+        Id
+        <%}%>
+        </span> 
         <span class="col py-1 bg-noroff">Name</span>
-        <span class="col py-1 bg-noroff">Species</span>
-        <span class="col py-1 bg-noroff">Birthday</span>
-        <span class="col py-1 bg-noroff">Temperament</span>
-        <span class="col py-1 bg-noroff">Size</span>
-        <span class="col py-1 bg-noroff">Age</span>
-        <span class="col py-1 bg-noroff">Adopted</span>
-        <span class="col py-1 bg-noroff">Options</span>
+        <span class="col py-1 bg-noroff"><%if(!animals[0].count){%>Species<%}%></span>
+        <span class="col py-1 bg-noroff"><%if(!animals[0].count){%>Birthday<%}%></span>
+        <span class="col py-1 bg-noroff"><%if(!animals[0].count){%>Temperament<%}%></span>
+        <span class="col py-1 bg-noroff"><%if(!animals[0].count){%>Size<%}%></span>
+        <span class="col py-1 bg-noroff"><%if(!animals[0].count){%>Age<%}%></span>
+        <span class="col py-1 bg-noroff"><%if(!animals[0].count){%>Adopted<%}%></span>
+        <span class="col py-1 bg-noroff"><%if(!animals[0].count){%>Options<%}%></span>
       </div>
+      
+      <div id="table">
       <% animals.forEach(function(animal) { %>
+
         <div class="row px-3 py-1 w-100">
           <span class="col py-1 bg-light ">
             <%=animal.id%>
@@ -58,11 +83,11 @@
           <span class="col py-1 bg-light">
             <%=animal.SpecieName%>
           </span>
-          <span class="col py-1 bg-light">
+          <span class="col py-1 bg-light" id="BirthDate">
             <%=animal.BirthDate%>
           </span>
           <span class="col py-1 bg-light">
-            <%=animal.TemperamentName%>
+            <%=animal.TemperamentsName%>
           </span>
           <span class="col py-1 bg-light">
             <%=animal.SizeName%>
@@ -73,12 +98,12 @@
           <span class="col py-1 bg-light">
             <%if (animal.UserId){%>
             true
-            <%} else {%>
-            false
+            <%} else if(!animal.count){%>
+            false <%=animal.count%>
             <%}%>
-        </span>
-        <span class="col py-1 bg-light text-center">
-          <%if (!animal.UserId && user && user.role===2) {%>
+          </span>
+          <span class="col py-1 bg-light text-center">
+            <%if (!animal.UserId && user && user.role===2) {%>
             <button class="btn-sm btn-warning"
               onclick='adoptAnimal("<%=animals.url%>","<%=animal.id%>","<%=user.id%>")'>Adopt</button>
             <%}%>
@@ -89,10 +114,11 @@
         </span>
       </div>
       <% }); %>
-            <hr>
-
         </div>
+        <hr>
+
       </div>
+    </div>
 </body>
 
 </html>
